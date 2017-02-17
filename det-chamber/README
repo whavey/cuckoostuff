@@ -1,0 +1,33 @@
+Directory Description:
+
+1) arffControl.py
+Python file that manages the process of extracting data from the cuckoo JSON report and creating an arff file from it. 
+
+2) files
+Subdirectory containing non executable files.
+
+	2a) arff_backlog.arff
+	This backlog file is an arff file used for training weka classifiers. It should be added to after every (accurate) classification.
+		
+	2b) filetypes.txt
+	A file used in arffControl to access every file type seen by the weka classifiers so far. It should be added to when a new file type has been submitted to cuckoo that a weka classifier hasnt seen.
+
+3) IVIII.py
+The main detchamber script used to rename storage folders and control the weka and result page generation scripts. 
+
+4) kill_display.py
+A script called to kill the display for the J48 classifier decision tree. The image automatically pops up when generated without this script.
+
+5) result_page
+Subdirectory containing code and resources for final result display page.
+
+	5a) result_page.py
+	Main script using flask to generate a web page from the results of cuckoo and weka.	
+
+	5b) static
+	Standard static folder found in most web serving directories. Contains static images found in final result page. 
+
+	5c) templates
+	Contains html format template used in conjuction with result_page.py (flask) to generate final result page.
+
+6) spider_graphing.py

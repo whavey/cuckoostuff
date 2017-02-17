@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<style>
+body {
+    margin-top: 20px;
+}
+@page {
+    size: A3;
+    margin: 1cm;
+}
+.footer {
+    margin-top: 45px;
+    padding: 35px 0 36px;
+    border-top: 1px solid #e5e5e5;
+}
+.footer p {
+    margin-bottom: 0;
+    color: #555;
+}
+.mono {
+    font-family: monospace;
+}
+.signature {
+    padding: 6px;
+    margin-bottom: 3px;
+}
+img.fade {
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+img.fade:hover {
+    opacity:1.0;
+    filter:alpha(opacity=100);
+}
+.section-title {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    padding-bottom: 3px;
+}
+.filesystem {
+    background-color: #ffe3c5; 
+}
+.registry {
+    background-color: #ffc5c5; 
+}
+.process {
+    background-color: #c5e0ff; 
+}
+.services {
+    background-color: #ccc5ff;
+}
+.device {
+    background-color: #ccc5ff;
+}
+.network {
+    background-color: #d3ffc5; 
+}
+.socket {
+    background-color: #d3ffc5;
+}
+.synchronization {
+    background-color: #f9c5ff;
+}
+.browser {
+    background-color: #dfffdf;
+}
+</style>
+
+	<section id="signature">
+   
+	<title>Results</title>
+	<h1>Results</h1>
+	{%for Result in Results%}
+		<strong>Submitted File:</strong> {{Result.file_name}}<br>
+		<strong>Place on Disk:</strong> {{Result.file_location}}<br>
+		<strong>Date Submitted:</strong> {{Result.date}}<br>
+		<strong>Cuckoo Score:</strong> {{Result.cuckoo_score}}<br>	
+		<strong>Expected Prediction:</strong> {{Result.expected_prediction}}<br>
+		<strong>Weka Prediction:</strong> {{Result.weka_prediction}}<br>
+		<br>
+	{% endfor %}
+
+</section>
