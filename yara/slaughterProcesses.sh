@@ -19,7 +19,7 @@
 # but it is written in a general purpose way.
 
 # File which contains process ids to be killed
-pid_file=/home/cuckoo/mitre-cuckoo/yara/PID_store
+pid_file=/home/cuckoo/sandbox/mitre-cuckoo/yara/PID_store
 
 if [ -e "$pid_file" ] # make sure the pid file exists
 then

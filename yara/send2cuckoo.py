@@ -2,7 +2,9 @@ import sys
 import time
 from subprocess import call
 
-fifo = open(r'/home/cuckoo/mitre-cuckoo/yara/cuckoo_pipe','r')
+venv_path = "/home/cuckoo/sandbox/bin"
+
+fifo = open(r'/home/cuckoo/sandbox/mitre-cuckoo/yara/cuckoo_pipe','r')
 while(True):
 	line = fifo.readline()
 	if len(line) == 0:
@@ -12,5 +14,5 @@ while(True):
 		print "running clamav scan on %s:\n" %str(line)
 		call(["clamscan", line])
 		print "Submitting %s to cuckoo" %str(line)
-		call(["cuckoo", "submit", "--memory", "--unique", line])
+		call([venv_path+"/python2.7",venv_path+"/cuckoo", "submit", "--memory", "--unique", line])
 

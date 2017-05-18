@@ -19,7 +19,8 @@
 #
 # Yara has implemented threading.
 # However it is slower than the distribute_fifo threading implementation for large amounts of files.
-path = "/home/cuckoo/mitre-cuckoo/yara/"
+
+path = "/home/cuckoo/sandbox/mitre-cuckoo/yara/"
 q = "QUEUE"
 h = "HITS"
 pid = "PID_store"
@@ -37,7 +38,7 @@ inotify_pid1=$!
 echo $inotify_pid0 >> $path$pid
 echo $inotify_pid1 >> $path$pid
 
-python2.7 $path$dis -d -n 10 -s $path$mal -f $path$pipe -o $path$h -l $path$log &
+/home/cuckoo/sandbox/bin/python2.7 $path$dis -d -n 10 -s $path$mal -f $path$pipe -o $path$h -l $path$log &
 
 yara_pid=$!
 echo $yara_pid >> $path$pid
