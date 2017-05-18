@@ -9,6 +9,8 @@ while(True):
 		time.sleep(1)
 	else:
 		line = line.strip()
+		print "running clamav scan on %s:\n" %str(line)
+		call(["clamscan", line])
 		print "Submitting %s to cuckoo" %str(line)
 		call(["cuckoo", "submit", "--memory", "--unique", line])
 
