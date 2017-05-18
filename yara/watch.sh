@@ -19,17 +19,25 @@
 #
 # Yara has implemented threading.
 # However it is slower than the distribute_fifo threading implementation for large amounts of files.
+path = "/home/cuckoo/mitre-cuckoo/yara/"
+q = "QUEUE"
+h = "HITS"
+pid = "PID_store"
+dis = "distribute_fifo.py"
+mal = "malicious-indicators"
+pipe = "pipe"
+log = "log/yara.log"
 
-inotifywait -e CREATE,MOVE -mrq /home/cuckoo/yara/QUEUE --format "%w%f" > pipe &
+inotifywait -e CREATE,MOVE -mrq $path$q --format "%w%f" > pipe &
 inotify_pid0=$!
 
-inotifywait -e CREATE,MOVE -mrq /home/cuckoo/yara/HITS --format "%w%f" > cuckoo_pipe &
+inotifywait -e CREATE,MOVE -mrq $path$h --format "%w%f" > cuckoo_pipe &
 inotify_pid1=$!
 
-echo $inotify_pid0 >> /home/cuckoo/yara/PID_store
-echo $inotify_pid1 >> /home/cuckoo/yara/PID_store
+echo $inotify_pid0 >> $path$pid
+echo $inotify_pid1 >> $path$pid
 
-python2.7 /home/cuckoo/yara/distribute_fifo.py -d -n 10 -s /home/cuckoo/yara/malicious-indicators/ -f /home/cuckoo/yara/pipe -o /home/cuckoo/yara/HITS -l /home/cuckoo/yara/log/yara.log &
+python2.7 $path$dis -d -n 10 -s $path$mal -f $path$pipe -o $path$h -l $path$log &
 
 yara_pid=$!
-echo $yara_pid >> /home/cuckoo/yara/PID_store
+echo $yara_pid >> $path$pid

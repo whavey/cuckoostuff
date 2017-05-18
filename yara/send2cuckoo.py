@@ -2,7 +2,7 @@ import sys
 import time
 from subprocess import call
 
-fifo = open(r'/home/cuckoo/yara/cuckoo_pipe','r')
+fifo = open(r'/home/cuckoo/mitre-cuckoo/yara/cuckoo_pipe','r')
 while(True):
 	line = fifo.readline()
 	if len(line) == 0:

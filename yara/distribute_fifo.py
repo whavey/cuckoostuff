@@ -80,7 +80,7 @@ class WorkerThread(threading.Thread):
 
     def run(self):
 
-	con = sqlite3.connect("/home/cuckoo/yara/hashdb.sqlite") 			
+	con = sqlite3.connect("/home/cuckoo/mitre-cuckoo/yara/hashdb.sqlite") 			
 	cur = con.cursor() 				
         while True:
             output = ""
