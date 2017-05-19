@@ -1,0 +1,65 @@
+{
+  "objectHash": "7cad8c76a2615a427c34744a0ac3279f",
+  "uuid": "10d58324-87b3-4751-b49a-938b5a15f801",
+  "fileType": [
+    "tar"
+  ],
+  "filename": "/home/cuckoo/sandbox/mitre-cuckoo/yara/HITS/seczip.tar",
+  "source": "CLI",
+  "origRootUID": "",
+  "uniqID": "",
+  "objectSize": 7854080,
+  "ephID": "",
+  "contentType": [],
+  "parent": "",
+  "parent_order": -1,
+  "scanModules": [
+    "META_HASH",
+    "SCAN_YARA",
+    "DISPOSITIONER",
+    "LOG_FLUENT"
+  ],
+  "moduleMetadata": {
+    "DISPOSITIONER": {
+      "Disposition": {
+        "Matches": [
+          "Alert"
+        ],
+        "Disposition_File": "/etc/laikaboss/modules/dispositioner/disposition.yara",
+        "Input_Flags": [
+          "yr:suspicious_sig_1"
+        ],
+        "Result": "Accept"
+      }
+    },
+    "DISPATCH": {
+      "Rules": [
+        "scan_yara (9)",
+        "meta_hash (9)"
+      ],
+      "Conditional Rules": [
+        "send_to_fluent (50)",
+        "DISPOSITION_FILE (10)"
+      ]
+    },
+    "META_HASH": {
+      "HASHES": {
+        "ssdeep": "196608:rX2dhCnq8UnelFLLbCGRt6Hqf0LC9sV7DuYHemav0zd+Z7CapBB0r:rX2nwptFLLxySf2+Syvi+42",
+        "SHA256": "1fb39fefc3ad836f2bfc6563976bda9b8b84ca877da09b185ee02516bc020e5c",
+        "SHA512": "c7881d2e1212a527b424213518c952e1372e88c9265d15e8726c0026559a86e3392ff2e1bd18a95e964a1a9753883ffd98960a07b68abe8e12e2fb4d3e2ef0cf",
+        "SHA1": "8d34cf5281d159405b88150450b9c38f300be968",
+        "md5": "7cad8c76a2615a427c34744a0ac3279f"
+      }
+    }
+  },
+  "sourceModule": "",
+  "level": 2,
+  "scanTime": 1495211667,
+  "depth": 0,
+  "flags": [
+    "yr:suspicious_sig_1"
+  ],
+  "rootUID": "10d58324-87b3-4751-b49a-938b5a15f801",
+  "order": 0
+}
+
